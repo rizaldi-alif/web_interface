@@ -5,11 +5,13 @@ const obsDistContainer = document.getElementById("obs-dist");
 const lmsContainer = document.getElementById("left-motor-speed");
 const rmsContainer = document.getElementById("right-motor-speed");
 const dirContainer = document.getElementById("car-direction");
-const joystickContainer = document.getElementById("joystick-container");
+const joystickContainer1 = document.getElementById("joystick-container-1");
+const joystickContainer2 = document.getElementById("joystick-container-2");
 const leftGauge = document.getElementById("left-gauge");
 const rightGauge = document.getElementById("right-gauge");
 const ssidName = document.getElementById("ssid-name");
 const websocketStatus = document.getElementById("websocket-status");
+const modeButton = document.getElementById("mode-button");
 
 window.addEventListener("load", () => {
   initWebSocket();
@@ -30,6 +32,8 @@ window.addEventListener("beforeunload", () => {
     websocket.close();
   }
 });
+
+modeButton.addEventListener("click", () => {});
 
 function initWebSocket() {
   websocket = new WebSocket(`ws://${window.location.hostname}/ws`);
@@ -123,4 +127,3 @@ function setDirection(angle) {
 }
 
 setDistance(0);
-setWs(isConnected);
